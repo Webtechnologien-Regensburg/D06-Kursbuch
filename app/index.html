@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Alexander Bazo">
+    <meta name="language" content="DE">
+    <meta name="viewport" content="width=device-width">
+    <title>Kursbuch Medieninformatik</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <script type="module" src="resources/js/app.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Kurse der Medieninformatik</h1>
+
+    <div class="content">
+
+        <div class="class-list">
+        </div>
+
+        <div class="class-details hidden">
+            <span class="title">Kommentare</span>
+            <ul>
+            </ul>
+            <span class="title">Dein Kommentar</span>
+            <textarea rows="4" cols="20" name="comment"></textarea>
+            <input type="submit" value="Kommentieren">
+        </div>
+
+    </div>
+
+    <template id="class-list-entry-template">
+        <span class="entry" data-id="$DATA_ID">
+            <span class="title">$TITLE</span>
+            <span class="description">$DESCRIPTION</span>
+        </span>
+    </template>
+
+    <template id="comment-template">
+        <li class="entry" data-id="$DATA_ID">
+            <span class="text">$TEXT</span>
+            <span class="date">$DATE</span>
+        </li>
+    </template>
+
+</body>
+
+</html>

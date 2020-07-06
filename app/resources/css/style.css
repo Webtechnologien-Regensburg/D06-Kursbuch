@@ -1,0 +1,132 @@
+.hidden {
+    display: none;
+}
+
+body {
+    /* Display & Box Model */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    /* Text */
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: rgb(5, 4, 1);
+    background-color: rgb(255, 250, 255);
+}
+
+h1 {
+	margin: 0;
+    padding: 2vh 10vw;
+    background-color: rgb(5, 4, 1);
+	color: rgb(255, 250, 255);;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.content {
+    width: 90vw;
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.class-list {
+    width: 56vw;
+    margin: 2vh 2vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.class-list .entry {
+    display: block;
+    width: 10vw;
+    height: 10vw;
+    padding: 1vw;
+    margin: 1vw;
+    background-color: rgb(252, 81, 48);
+    color: rgb(255, 250, 255);
+    overflow: hidden;
+}
+
+.class-list .entry:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.class-list .entry.selected {
+    background-color: rgb(48, 188, 237);
+}
+
+.class-list .entry .title {
+    display: block;
+    border: solid rgb(255, 250, 255);
+    border-width: 0 0 1px 0;
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: 300;
+    font-size: 1.25em;
+    text-transform: uppercase;
+}
+
+.class-list .entry .description {
+    display: block;
+    text-align: left;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.class-details {
+    width: 26vw;
+    margin: 2vw 2vw;
+}
+
+.class-details .title {
+    display: block;
+    width: 26vw;
+    text-align: center;
+    font-size: 2em;
+    color: rgb(252, 81, 48);
+}
+
+.class-details ul {
+    list-style-type: none;
+     padding-left: 0;
+}
+
+.class-details ul li {
+    margin: 1vw;
+    background-color: rgba(252, 81, 48, 0.5);
+}
+
+.class-details ul li .text {
+    display: block;
+    padding: 0.25vw;
+}
+
+.class-details ul li .date {
+    display: block;
+    padding: 0.25vw;
+    color: rgb(255, 250, 255);
+    background-color: rgb(48, 48, 54);
+    font-size: 0.85em;
+    text-align: right;
+}
+
+.class-details ul li .date:before {
+    content: "Erstellt: ";
+}
+
+.class-details textarea {
+    display: block;
+    width: 24vw;
+    margin: 1vw auto;
+}
+
+.class-details input[type="submit"] {
+    display: block;
+    width: 12vw;
+    height: 4vw;
+    margin: 1vw auto;
+    background-color: rgba(252, 81, 48, 0.5);
+}
