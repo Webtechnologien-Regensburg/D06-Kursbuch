@@ -1,40 +1,28 @@
-import DatabaseClient from "./DatabaseClient.js";
-import ClassList from "./ClassList.js";
-import ClassDetails from "./ClassDetails.js";
-
-var currentClassID;
+import DatabaseClient from "./database/DatabaseClient.js";
+import CourseView from "./ui/COurseView.js";
 
 function init() {
+    CourseView.setOnCourseSelectedListener(onCourseSelected);
+    CourseView.setOnCommentCreatedListener(onCommentCreated);
     loadClassList();
 }
 
 function loadClassList() {
     DatabaseClient.getClasses(function(result) {
-        for (let i = 0; i < result.length; i++) {
-            ClassList.add(result[i]);
-        }
-        ClassList.addClickEventListener(onClassListItemClicked);
-        ClassDetails.addCommentCreatedListener(onCommentAdded);
+        CourseView.addCourses(result);
     });
 }
 
-function showCommentsForCurrentClass() {
-    DatabaseClient.getCommentsFor(currentClassID, function(result) {
-        ClassDetails.clear();
-        for (let i = 0; i < result.length; i++) {
-            ClassDetails.add(result[i]);
-        }
+function onCourseSelected(courseID) {
+    DatabaseClient.getCommentsFor(courseID, function(result) {
+        CourseView.clearComments();
+        CourseView.addComments(result);
     });
 }
 
-function onClassListItemClicked(classID) {
-    currentClassID = classID;
-    showCommentsForCurrentClass();
-}
-
-function onCommentAdded(comment) {
-    DatabaseClient.comment(currentClassID, comment, function(result) {
-        ClassDetails.add(result[0]);
+function onCommentCreated(comment) {
+     DatabaseClient.comment(comment.classID, comment.comment, function(result) {
+        CourseView.addComments(result);
     });
 }
 

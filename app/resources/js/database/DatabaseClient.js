@@ -1,7 +1,7 @@
-const DATABASE_BASE_ROUTE = "http://localhost:8080/db/";
+import Config from "../Config.js";
 
 function sendDatabaseRequest(route, method, callback) {
-    let url = DATABASE_BASE_ROUTE + route;
+    let url = Config.dbBaseRoute + route;
     fetch(url, { method: method }).then(function(response) {
         return response.json();
     }).then(function(result) {
