@@ -35,7 +35,6 @@ class ClassList {
             content = CLASS_TEMPLATE;
         content = content.replace("$DATA_ID", newClass.id);
         content = content.replace("$TITLE", newClass.title);
-        content = content.replace("$DESCRIPTION", newClass.description);
         el.innerHTML = content;
         el.firstChild.addEventListener("click", onClassListItemClicked.bind(this));
         this.listEl.append(el.firstChild);
@@ -46,7 +45,6 @@ class ClassList {
         return {
             id: id,
             title: el.querySelector(".title").innerHTML,
-            description: el.querySelector(".description").innerHTML,
         };
     }
 

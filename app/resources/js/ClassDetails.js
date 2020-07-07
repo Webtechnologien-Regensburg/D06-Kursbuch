@@ -5,7 +5,6 @@ const CLASS_DETAIL_SELECTOR = ".class-details",
     COMMENT_TEMPLATE = document.querySelector(COMMENT_TEMPLATE_SELECTOR).innerHTML
     .trim();
 
-
 function dateFromTimestamp(timestamp) {
     let date = new Date(timestamp * 1000);
     return date;
@@ -37,7 +36,8 @@ class ClassDetails {
     add(comment) {
         let el = document.createElement("div"),
             content = COMMENT_TEMPLATE;
-        content = content.replace("$DATA_ID", comment.id);
+        content = content.replace("$DATA_ID", comment.commentID);
+        content = content.replace("$ID", comment.commentID);
         content = content.replace("$DATE", dateFromTimestamp(comment.createdAt));
         content = content.replace("$TEXT", comment.comment);
         el.innerHTML = content;

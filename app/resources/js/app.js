@@ -38,5 +38,4 @@ function onCommentAdded(comment) {
     });
 }
 
-
 init();

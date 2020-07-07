@@ -1,52 +1,52 @@
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 body {
-    /* Display & Box Model */
     width: 100%;
     margin: 0 auto;
     padding: 0;
-    /* Text */
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     color: rgb(5, 4, 1);
-    background-color: rgb(255, 250, 255);
+    background-color: #fff;
 }
 
 h1 {
-	margin: 0;
-    padding: 2vh 10vw;
-    background-color: rgb(5, 4, 1);
-	color: rgb(255, 250, 255);;
+    margin: 0;
+    padding: 0.5vw;
+    background-color: #0D3B66;
+    color: #FFFF;
     letter-spacing: 2px;
-    text-align: center;
+    text-align: left;
 }
 
 .content {
+    display: flex;
     width: 90vw;
     margin: 2vh auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .class-list {
-    width: 56vw;
-    margin: 2vh 2vh;
     display: flex;
+    width: 15vw;
+    margin-top: 2vh;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .class-list .entry {
     display: block;
-    width: 10vw;
-    height: 10vw;
-    padding: 1vw;
+    width: 12vw;
+    height: 12vw;
     margin: 1vw;
-    background-color: rgb(252, 81, 48);
-    color: rgb(255, 250, 255);
+    background-color: #f4d35e;
+    border-radius: 0.5vw;
+    color: #333;
     overflow: hidden;
+    -webkit-box-shadow: 10px 10px 5px 0px #faf0ca;
+    -moz-box-shadow: 10px 10px 5px 0px #faf0ca;
+    box-shadow: 10px 10px 5px 0px #faf0ca;
 }
 
 .class-list .entry:hover {
@@ -54,62 +54,82 @@ h1 {
     cursor: pointer;
 }
 
-.class-list .entry.selected {
-    background-color: rgb(48, 188, 237);
-}
 
 .class-list .entry .title {
     display: block;
-    border: solid rgb(255, 250, 255);
-    border-width: 0 0 1px 0;
     text-align: center;
-    word-wrap: break-word;
-    font-weight: 300;
+    word-wrap: normal;
     font-size: 1.25em;
+    padding: 0.25vw;
     text-transform: uppercase;
+    background-color: #0D3B66;
+    color: #fff;
 }
 
-.class-list .entry .description {
-    display: block;
-    text-align: left;
-    font-size: 1em;
-    font-style: italic;
+.class-list .entry.selected .title {
+    background-color: #f95738;
 }
 
 .class-details {
-    width: 26vw;
-    margin: 2vw 2vw;
+    display: flex;
+    width: 78vw;
+    margin: 0;
+}
+
+.class-details .comments {
+    width: 40vw;
+}
+
+.class-details .form {
+    width: 30vw;
 }
 
 .class-details .title {
     display: block;
-    width: 26vw;
+    width: 20vw;
+    margin: 1vh auto;
     text-align: center;
-    font-size: 2em;
-    color: rgb(252, 81, 48);
+    font-size: 1.5em;
+    color: #0d3b66;
 }
 
 .class-details ul {
     list-style-type: none;
-     padding-left: 0;
+    padding-left: 0;
 }
 
 .class-details ul li {
     margin: 1vw;
-    background-color: rgba(252, 81, 48, 0.5);
+    padding: 0.5vw;
+    background-color: #faf0ca;
+    border-radius: 0.5vw;
+    overflow: hidden;
+    -webkit-box-shadow: 10px 10px 5px 0px #fafafa;
+    -moz-box-shadow: 10px 10px 5px 0px #fafafa;
+    box-shadow: 10px 10px 5px 0px #fafafa;
+}
+
+.class-details ul li .id {
+    display: block;
+    float: right;
+    margin-left: 1vw;
+    font-size: 1em;
+    color: #333;
 }
 
 .class-details ul li .text {
     display: block;
+    min-height: 5vh;
     padding: 0.25vw;
 }
 
 .class-details ul li .date {
     display: block;
-    padding: 0.25vw;
+    margin: -0.5vw;
+    padding: 0.5vw;
     color: rgb(255, 250, 255);
-    background-color: rgb(48, 48, 54);
-    font-size: 0.85em;
+    background-color: #0d3b66;
+    font-size: 0.5em;
     text-align: right;
 }
 
@@ -119,14 +139,23 @@ h1 {
 
 .class-details textarea {
     display: block;
-    width: 24vw;
-    margin: 1vw auto;
+    width: 30vw;
+    margin: 0 auto;
+    border: 1px solid #cccccc;
+    padding: 0.5em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .class-details input[type="submit"] {
     display: block;
-    width: 12vw;
-    height: 4vw;
-    margin: 1vw auto;
-    background-color: rgba(252, 81, 48, 0.5);
+    float: right;
+    margin: 0.5vw;
+    padding: 0.5vw;
+    background-color: #F95738;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
 }
