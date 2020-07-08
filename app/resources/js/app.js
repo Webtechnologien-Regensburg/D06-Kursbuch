@@ -1,13 +1,13 @@
 import DatabaseClient from "./database/DatabaseClient.js";
-import CourseView from "./ui/COurseView.js";
+import CourseView from "./ui/CourseView.js";
 
 function init() {
     CourseView.setOnCourseSelectedListener(onCourseSelected);
     CourseView.setOnCommentCreatedListener(onCommentCreated);
-    loadClassList();
+    loadCourseList();
 }
 
-function loadClassList() {
+function loadCourseList() {
     DatabaseClient.getClasses(function(result) {
         CourseView.addCourses(result);
     });
@@ -21,7 +21,7 @@ function onCourseSelected(courseID) {
 }
 
 function onCommentCreated(comment) {
-     DatabaseClient.comment(comment.classID, comment.comment, function(result) {
+    DatabaseClient.comment(comment.classID, comment.comment, function(result) {
         CourseView.addComments(result);
     });
 }

@@ -1,7 +1,7 @@
 import express from "express";
 import Database from "./lib/Database.js";
-const DATABASE_NAME = "classes.sqlite";
-const HTTP_PORT = 8080;
+const DATABASE_NAME = "classes.sqlite",
+    HTTP_PORT = 8080;
 
 var app;
 
@@ -52,7 +52,7 @@ function onCommentAddedForClass(request, response) {
         comment = request.params.comment,
         now = Date.now(),
         query = "INSERT INTO comment (classID, comment, createdAt) VALUES (" + id + ", \"" + comment + "\", " + now + ")";
-    Database.run(query, function(result) {
+    Database.run(query, function() {
         query = "SELECT commentID, comment, createdAt FROM comment, class WHERE class.id = " + id + " AND class.id = comment.classID ORDER BY commentID DESC LIMIT 1";
         Database.run(query, function(result) {
             response.status(200).send(JSON.stringify(result));
